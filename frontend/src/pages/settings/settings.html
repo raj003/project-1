@@ -1,0 +1,52 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>settings</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content id="bg">
+  
+    <div id="box1">
+      <ion-list>
+        <button ion-item detail-none>
+          <ion-label>Invite Friends</ion-label>
+        </button>
+      
+        <button ion-item>
+          <ion-label>Frequently Asked Questions</ion-label>
+        </button>
+        <button ion-item (click)="gotoTermsPage()">
+          <ion-label>Terms and Usage</ion-label>
+        </button>
+        <button ion-item>
+          <ion-label>Help and Feedback</ion-label>
+        </button>
+        <button ion-item (click)="gotoPolicyPage()">
+          <ion-label>Privacy Policy</ion-label>
+        </button>
+      </ion-list>
+    </div>
+  
+    <div id="box2">
+      <ion-list>
+        <button ion-item detail-none>
+          <ion-label>Rate Monster!</ion-label>
+        </button>
+        <button ion-item>
+          <ion-label>Communications</ion-label>
+        </button>
+        <button ion-item detail-none (click)="deleteAccount()">
+          <ion-label style="color: red;">Delete my Account</ion-label>
+        </button>
+        <button ion-item detail-none (click)="onLogOutClick()">
+          <ion-label>Sign Out</ion-label>
+        </button>
+      </ion-list>
+    </div>
+  
+  </ion-content>

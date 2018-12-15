@@ -1,0 +1,21 @@
+// http://ionicframework.com/docs/theming/
+
+ // @import "../../node_modules/ionic2-auto-complete/auto-complete";
+
+[scrollbar-y-auto] .scroll-content {
+    overflow-y: auto !important;
+  }
+
+  #flashMessages {
+    margin:0px 10px;
+    .flash-message {
+      margin-bottom:0px;
+      p {
+        padding: 5px 0px 5px 12px;
+        margin: 0px;
+      }
+    }
+  }
+  .toggleFlashMsgs {
+    display: none;
+  }

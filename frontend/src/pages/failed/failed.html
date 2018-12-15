@@ -1,0 +1,19 @@
+
+
+
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let failjob of failedjobs.slice().reverse()">   
+          <ion-avatar item-start ion-checkbox checked="true">
+            <ion-text-avatar shape="round" class="avatar font">
+                {{ failjob.companyTitle.charAt(0) }}
+            </ion-text-avatar>
+            <!-- <ion-icon name="checkmark-circle"></ion-icon>   -->
+          </ion-avatar>
+            <h6>{{ failjob.companyTitle }}</h6>
+            <p id="p">Applied 2 minutes ago</p>
+            <p id="p1">{{ failjob.jobTitle }}</p>
+        </ion-item>
+    </ion-list>
+</ion-content>

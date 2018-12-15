@@ -1,0 +1,31 @@
+
+<ion-content padding scroll="false" class="no-scroll">
+  <button ion-button clear id="sign"  (click)="gotoSignpage()"><b>Sign In</b></button>
+  <br>
+  <div text-center id="cologo">
+  <img width="240" height="60" src="assets/imgs/co logo.png">
+  </div>
+  <div id="desc1" text-center>
+  	<p style="color: #3CABE2;">The easiest way to find a job</p>
+  </div>
+ 
+  <div id="linklogo" text-center>
+    <button ion-button icon-only clear (click)="linkedinLogin()">
+        <img id="linkimg" src="assets/imgs/linkedin1.png">
+    </button>
+    <button ion-button icon-only clear (click)="loginWithFB()">
+      <img id= "fblinkimg" src="assets/imgs/facebook-sign-in-button.png">
+     </button>
+  </div>
+  
+  <div text-center class="desc2">
+    I agree to the<u (click)="totermPage()" >Terms of usage</u> and <u (click)="toPolicypage()">Privacy Policy</u>
+  </div>
+  <div id="signUpBtn">
+    <button ion-button clear id="sign2" (click)="openRegisterPage()">Sign Up with Email</button>
+  </div>
+  
+	
+
+
+</ion-content>

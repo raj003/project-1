@@ -1,0 +1,69 @@
+<ion-header no-border>
+  <ion-toolbar>
+      <ion-buttons start>
+          <button ion-button icon-only style="color: #9012FE;" (click)="minimizePage()">
+              <ion-icon name="ios-arrow-dropdown"></ion-icon>
+          </button>
+      </ion-buttons>
+      <ion-buttons right>
+          <button ion-button icon-only style="color: #9012FE;" (click)="moreOptions()">
+              <ion-icon name="ios-more"></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content id="content" scrollbar-y-auto>
+  <div class="sticky"></div>
+  <div id="container">
+    <img src="assets/imgs/lap.jpg" style="height: 210px;width: 100%">
+    <div id="imgbot1">{{ company }}</div>
+    <div id="imgbot2">{{ jobtitle }}</div>
+    <div id="imgbot3">opportunity: intelligent and great</div>
+
+  </div>
+  <div>
+    <ion-card>
+      <ion-item class="ion-item">
+        <h6>Basic Info</h6>
+      </ion-item>
+      <ion-card-content>
+        <ion-row>
+          <ion-col class="txt lf">Date posted</ion-col>
+          <ion-col class="txt rf">4 days ago</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="txt lf">Location</ion-col>
+          <ion-col class="txt rf">{{ location }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="txt lf">Type</ion-col>
+          <ion-col class="txt rf">{{ jobtype }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="txt lf">Salary</ion-col>
+          <ion-col class="txt rf">Competitive salary</ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div>
+    <ion-card>
+      <ion-item class="ion-item"><h6>Details</h6></ion-item>
+      <ion-card-content>
+        <div class="ds">
+          {{ jobDes }} 
+        </div>
+      </ion-card-content>
+    </ion-card>
+    
+  </div>
+  <p class="sm">Listed from</p>
+  <p class="tag">MONSTER</p>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar class="f-bar">
+    <button ion-button class="button one" (click)="cancelbtn()">Pass</button>
+    <button ion-button class="button two" (click)="applyjob()">Apply</button>
+  </ion-toolbar>
+</ion-footer>

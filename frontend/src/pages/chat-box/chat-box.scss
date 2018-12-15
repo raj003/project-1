@@ -1,0 +1,64 @@
+page-chat-box {
+    p {
+        font-size: 14px;
+        font-weight: 400;
+
+    }
+    ion-input {
+        border-radius: 5px;
+         background-color: whitesmoke;
+    }
+    
+    .toolbar-background {
+        background-color: white;
+      }
+    
+    .card {
+        border-radius: 15px;
+        background-color: #F1F0F0;
+        max-width: 80%;
+       // min-width: 20%;
+    }
+    .msg {
+        font-size: bold;
+        
+    }
+    #sendicon {
+        color: #3BABE3;
+    }
+
+    .text-input {
+        margin-left: 5px;
+        font-size: 17px;
+    }
+    .innermsg {
+        display: block;
+        padding: 5px 10px;
+        margin: 5px;
+        font-weight: 500;
+        font-size: 16px;
+        border-radius: 15px;
+        margin-bottom: 5px;
+    }
+
+    .innermsg.left {
+        float: right;
+        background-color: #F1F0F0;
+        color: black;
+        clear: both;
+    }
+
+    .innermsg.right {
+        float: left;
+        //margin-right: 10%;
+        background-color: #0084FF;
+        color: white;
+        clear: both;
+    }
+
+    .msgbubble {
+        margin-bottom: 10px;
+    }
+
+    
+}

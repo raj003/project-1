@@ -1,0 +1,51 @@
+
+<ion-header>
+
+  <ion-toolbar class="bar-stable">
+    <ion-buttons left>
+      <button ion-button icon-only id="colsebutton" (click)= "goBack()">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+    	<p style="text-align:center;"><b>Sign Up</b></p>
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content id="content">
+	<br><br>
+	<flash-messages></flash-messages> 
+	<div id="ipfeilds">
+			<form (submit)="onRegisterSubmit()" [formGroup]="userForm">
+				<ion-list>
+					<ion-item class="list">
+						<ion-label class="list2" color="black" fixed>Full name</ion-label>
+						<ion-input type="text" formControlName="name" [(ngModel)]="name" name="name" class="form-control"></ion-input>
+					</ion-item>
+					<control-messages [control]="userForm.controls.name" class="control-messages"></control-messages>
+					<ion-item class="list">
+						<ion-label class="list2" color="black" fixed>User name</ion-label>
+						<ion-input type="text" formControlName="username" [(ngModel)]="username" name="usename" class="form-control"></ion-input>
+					</ion-item>
+					<control-messages [control]="userForm.controls.username" class="control-messages"></control-messages>
+					<ion-item class="list">
+						<ion-label class="list2" color="black" fixed>Email</ion-label>
+						<ion-input type="email" [(ngModel)]="email" formControlName="email" name="email" class="form-control" ></ion-input>
+					</ion-item>
+					<control-messages [control]="userForm.controls.email" class="control-messages"></control-messages>
+					<ion-item class="list">
+						<ion-label  class="list2" color="black" fixed>Password</ion-label>
+						<ion-input type="password" [(ngModel)]="password" formControlName="password" name="password" class="form-control"></ion-input>
+					</ion-item>
+					<control-messages [control]="userForm.controls.password" class="control-messages"></control-messages>
+				</ion-list>
+				<p id="Policy">I agree the <u (click)="totermPage()">Terms of Usage</u> and <u (click)="toPolicypage()">Privacy Policy</u></p>
+				<div id="newAcbtnpos">
+					<button type="submit"  ion-button block id="newAcbtn" value="Submit">Create New Account</button>
+				</div>
+			</form>
+	</div>
+</ion-content>

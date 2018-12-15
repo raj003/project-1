@@ -1,0 +1,43 @@
+page-location {
+	#mapimg {
+		position: relative;
+		top: 60px;
+		left: 50px;
+		width:70%;
+	}
+
+	#h6caption {
+		color: #3BABE3;
+		text-align: center;
+		position: relative;
+		top: 80px;
+		font-size: 18px;
+		
+	}
+	div#caption {
+		color: #87898C;
+		opacity: 0.5;
+		text-align: center;
+		position: relative;
+		top: 110px;
+		line-height: 0.5cm;
+		font-size: 16px;
+	}
+	#notnowbtn {
+		position: relative;
+		top: 145px;
+		margin-left: 12px;
+		color: #D3D3D3;
+		width: 140px;
+	}
+	#okbtn {
+		position: relative;
+		top: 145px;
+		margin-left: 10px;
+		background-color: #3BABE3;
+		width: 140px;
+	}
+	.btnfont {
+		font-size: 13px;
+	}
+}

@@ -1,0 +1,54 @@
+page-notification {
+
+
+#caption {
+	color: #3BABE3;
+	font-size: 18px;
+	position: relative;
+	top: 250px;
+}
+#para {
+	line-height: 0.5cm;
+	color: grey;
+	opacity: 0.5;
+	text-size: 17px;
+	position: relative;
+	top: 270px;
+	font-size: 16px;
+}
+#policy {
+	color: grey;
+	text-size: 15px;
+	position: relative;
+	top: 305px;
+}
+#notnowbtn {
+	position: relative;
+	top: 320px;
+	margin-left: 12px;
+	width: 140px;
+	color: #D3D3D3;
+}
+#okbtn {
+	position: relative;
+	top: 320px;
+	margin-left: 10px;
+	background-color: #3BABE3;
+	width: 140px;
+
+}
+.notifimg {
+	position: fixed;
+	top: 80px;
+	width: 40%;
+	height: 40%;
+	left: 0;
+	right: 0;
+	margin: auto;
+
+}
+.btnfont {
+	font-size: 13px;
+}
+
+}

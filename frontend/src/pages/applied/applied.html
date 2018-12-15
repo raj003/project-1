@@ -1,0 +1,21 @@
+<ion-header>
+</ion-header>
+
+<ion-content class="no-scroll">
+        
+        <ion-list>
+          <ion-item *ngFor="let appliedjob of appliedjobs.slice().reverse()">   
+            <ion-avatar item-start ion-checkbox checked="true">
+              <ion-text-avatar shape="round" class="avatar font">
+                {{ appliedjob.companyTitle.charAt(0) }}
+              </ion-text-avatar>
+            <ion-icon name="checkmark-circle"></ion-icon>  
+            </ion-avatar>
+              <h6>{{ appliedjob.companyTitle }}</h6>
+              <p id="p">Applied at {{  appliedjob.date }}</p>
+              <p id="p1">{{ appliedjob.jobTitle }}</p>
+          </ion-item>
+        </ion-list>
+            
+  
+</ion-content>

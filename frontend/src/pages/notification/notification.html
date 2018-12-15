@@ -1,0 +1,28 @@
+
+<ion-content>
+	<div class="notifimg" text-center>
+		
+		<img src="assets/imgs/notif2.png" id="notiimg">
+		
+	</div>
+	<br>
+	<p text-center id="caption"><b>please turn on notifications</b></p>
+	<div text-center id="para">
+		This includes email and push notifications,<br>
+		about job postings and other content.<br>
+		You can withdraw consent at any time,or<br>
+		change prefernces in Settings
+	</div>
+	<div text-center id="policy"><u (click)="toPolicypage()">Privacy Policy</u></div>
+	<button ion-button color="light" outline id="notnowbtn" (click)="notnow()" >
+		<div class="btnfont">
+			Not Now
+		</div>
+	</button>
+	<button ion-button id="okbtn" (click)="acccessNofification()" >
+		<div class="btnfont">
+			OK
+		</div>
+	</button>
+
+</ion-content>

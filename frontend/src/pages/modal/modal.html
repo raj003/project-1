@@ -1,0 +1,31 @@
+<ion-content class="sample-modal-page">
+
+  <img src="assets/imgs/map2.png" id="mapimg">
+  <ion-list no-lines>
+      <ion-item-divider style="background-color: white; height: 5px;">
+          <div class="lf">Range</div>
+          <div item-end class="rf"> Within 30 Kilometers</div>
+        </ion-item-divider>
+    <ion-item style="height: 5px;">
+        <ion-range > 
+          </ion-range>
+    </ion-item>
+    <div style="border-bottom: 1px solid grey"></div>
+    <ion-item-divider style="background-color: white; height: 5px;">
+        <div class="lf">Salary</div>
+        <div item-end class="rf">Min $0</div>
+      </ion-item-divider>
+  <ion-item style="height: 5px;">
+      <ion-range >
+        </ion-range>
+  </ion-item>
+  <ion-item>
+    <ion-label style="color: grey;font-size: 14px;">Allow Unspecified Salaries</ion-label>
+    <ion-toggle></ion-toggle>
+  </ion-item>
+  
+  </ion-list>
+  <div text-center>
+      <button ion-button style="background-color: #3BABE3; width: 85%;" (click)="filter()">Apply Filter</button>
+  </div>
+</ion-content>

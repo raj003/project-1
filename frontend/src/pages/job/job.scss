@@ -1,0 +1,18 @@
+page-job {
+    .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+        color: #3BABE3;
+        
+    }  
+    .tabs-md .tab-button[aria-selected=true] .tab-button-text {
+        color: #3BABE3;
+    }
+    .tabs-ios-secondary .tab-button[aria-selected=true] .tab-button-icon {
+        color: #3BABE3;
+    }
+    .tabs-md .tab-button[aria-selected=true] {
+        color: #3BABE3 !important;
+    }
+    .tabs-ios .tab-button[aria-selected=true] {
+        color: #3BABE3 !important;
+    }
+}

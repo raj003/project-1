@@ -1,0 +1,67 @@
+page-home {
+
+	#sign {
+		
+		position: relative;
+		
+		float: right;
+		font-size: 15px;
+		color: #3CABE2;
+	}
+
+	#cologo {
+		position: relative;
+		top: 70px;
+	}
+
+	#desc1 {
+		position: relative;
+		top: 80px;
+		font-size: 18px;
+	}
+
+	.desc2 {
+		color: grey;
+		font-size: 10px;
+		position: relative;
+		top: 180px;
+		text-align: center;
+	}
+	#sign2 {
+		// position: relative;
+		// top: 255px;
+		// left: 60px;
+		color: #778899;
+	}
+
+	#linklogo {
+		position: relative;
+		top: 170px;
+	}
+
+	ion-content{
+		background-color: white;
+	}
+
+	#linkimg {
+		width: 72%;
+		height: 85%;
+	}
+
+	#fblinkimg {
+		width: 75%;
+		height: 100%;
+	}
+
+	#signUpBtn {
+		position: relative;
+		top: 200px;
+		text-align: center;
+	}
+
+	.no-scroll .scroll-content {
+		overflow: hidden;
+	}
+
+
+}

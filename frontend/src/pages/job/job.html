@@ -1,0 +1,9 @@
+
+    <ion-tabs color="secondary">
+       <ion-tab [root]="feedsRoot" tabTitle="Feeds" tabIcon="md-paper" tabsHideOnSubPages="true"></ion-tab>
+        <ion-tab [root]="matchesRoot" tabTitle="Matches" tabIcon="ios-list-box" tabsHideOnSubPages="true"></ion-tab>
+        <ion-tab [root]="conversationRoot" tabTitle="Conversation" tabBadge={{msgCount}} tabBadgeStyle="danger" tabIcon="ios-text" tabsHideOnSubPages="true"></ion-tab>
+        <ion-tab [root]="profileRoot" tabTitle="Profile" tabIcon="md-person" tabsHideOnSubPages="true"></ion-tab>
+        <ion-tab [root]="settingsRoot" tabTitle="Settings" tabIcon="md-settings" tabsHideOnSubPages="true"></ion-tab>
+    </ion-tabs>
+

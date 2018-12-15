@@ -1,0 +1,27 @@
+page-conversation {
+    #p{
+        font-size: 10px;
+    }
+    #p1 {
+        font-size: 8px;
+    }
+    .avatar{
+        background-color: #C0C0C0;
+    }
+    .no-scroll .scroll-content {
+        overflow: auto;
+    }
+    .check {
+        position: relative;
+        top: 5px;
+    }
+    ion-avatar{
+        position: relative;
+        ion-icon{
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            color: rgb(23, 201, 23);
+        }
+    }
+}

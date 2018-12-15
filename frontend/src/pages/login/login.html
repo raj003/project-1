@@ -1,0 +1,44 @@
+
+<ion-header>
+  <ion-toolbar>
+  	<ion-buttons left>
+  		<button ion-button clear icon-only id="closebtn" (click)="gotoHomepage()">
+  			<ion-icon name="md-close"></ion-icon>
+  		</button>
+  	</ion-buttons>
+    <ion-title><b>Sign In</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content id="content">
+	<br>
+	<div>
+			<flash-messages ></flash-messages> 
+			<!-- <button ion-button color="secondary" class="flasMsgDiv" outline>{{ flasMsgContent }}</button> -->
+		 <form [formGroup]="userForm" (submit)="onLoginSubmit()" id="login-form">
+				<ion-list style="margin: 5px;">
+					 <ion-item [class.errMsg]= "ErrorMsgStatus" class="borders"> 
+						<ion-label color="black" fixed>{{ readUsernames ? "Reading...": 'Username' }}</ion-label>
+						<ion-input type="text" id="username" formControlName="username" (focus)="clearErr()" class="form-control" placeholder="username" name="username" [(ngModel)]="username" (ngModelChange)="readUserName()"></ion-input>
+					</ion-item>
+					<control-messages [control]="userForm.controls.username" class="control-messages"></control-messages>	
+				</ion-list>
+				<ion-list style="margin: 5px;">
+					<ion-item [class.errMsg]= "ErrorMsgStatus" class="borders">
+						<ion-label color="black" fixed>{{ readPswd ? "Reading...": 'Password' }}</ion-label>
+						<ion-input type="password" id="password" formControlName="password" (focus)="clearErr()" class="form-control" placeholder="password" [(ngModel)]="password" name="password" (ngModelChange)="readPassword()"></ion-input>
+					</ion-item>
+					<control-messages [control]="userForm.controls.password" class="control-messages"></control-messages>	
+				</ion-list>
+				<div text-center id="signdiv">
+				<button type="submit"  ion-button block id="signinbtn" value="Login">Sign In</button>
+				</div>	
+			</form> 
+	</div>
+	
+  <p id="fpass">
+	 <button ion-button clear id="fpassbtn" (click)="fp()">Forgot Password</button>
+  </p>
+
+</ion-content>

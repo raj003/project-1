@@ -1,0 +1,72 @@
+
+<ion-content>
+   
+  <div id="box" >
+      <div class="editpos" *ngIf="lock; else ok_content">
+          <button ion-button clear id="editbtn" (click)="editContent()">
+              Edit
+          </button>
+      </div>
+      <div id="ppic">
+          <img src="{{ userSpecificData.profilePic }}" id="pic"> 
+          <span id="imgedit">
+             <button ion-button clear (click)="openGaller()" *ngIf="unlock">
+                <img src="assets/imgs/edit-icon.png" >
+             </button>
+          </span>
+          <p id="name">M S</p>
+          <p id="loc">Markham , ON</p>
+      </div>
+  </div>
+  <form (submit)="profileSubmit()"> 
+      
+    <ion-list>
+        <ion-item-divider>
+          <ion-label>
+            Resume from the cloud
+          </ion-label>
+        </ion-item-divider>
+        <ion-item class="items">
+            <ion-label> 
+                {{ resumeName }}
+                <div text-right>
+                    <button ion-button  icon-only clear (click)="uploadFile()">
+                        <ion-icon name="ios-cloud-upload"></ion-icon>
+                    </button>
+                </div>
+            </ion-label>
+        </ion-item>
+        <ion-item-divider>
+            <ion-label>
+              Summary
+            </ion-label>
+          </ion-item-divider>
+          <ion-item class="items">
+              <ion-input [(ngModel)]="userSpecificData.about" name="about" placeholder="A little about you" [disabled]="lock"></ion-input>
+          </ion-item>
+          <ion-item-divider>
+              <ion-label>
+              Expirence
+              </ion-label>
+            </ion-item-divider>
+            <ion-item class="items">
+                <ion-input  [(ngModel)]="userSpecificData.expirence" name="expirence" placeholder="job Expirence" [disabled]="lock"></ion-input>
+            </ion-item>
+            <ion-item-divider>
+                <ion-label>
+                  Education
+                </ion-label>
+              </ion-item-divider>
+              <ion-item class="items">
+                  <ion-input [(ngModel)]="userSpecificData.education" name="education" placeholder="University" [disabled]="lock"></ion-input>
+              </ion-item>
+      </ion-list>
+      <div *ngIf="unlock" class="editpos">
+          <button type="submit" ion-button large id="editbtn">
+              SAVE
+          </button>
+        </div>
+    </form>
+    
+
+</ion-content>

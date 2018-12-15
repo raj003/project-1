@@ -1,0 +1,22 @@
+
+<ion-content id="content">
+	<img id="mapimg" src="assets/imgs/mapimg.png">
+
+	<p text-center id="h6caption">Please allow location access</p>
+	
+	<div id="caption" >This will helps us find job near you,<br>
+		or specific area you choose.
+	</div>
+
+	<button ion-button color="light" outline id="notnowbtn" (click)="notnowbtn()" >
+		<div class="btnfont">
+			Not Now
+		</div>
+	</button>
+	<button ion-button id="okbtn" (click)="getLocation()" >
+		<div class="btnfont">
+			OK
+		</div>
+	</button>
+	
+</ion-content>

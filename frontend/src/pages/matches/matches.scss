@@ -1,0 +1,59 @@
+page-matches {
+    
+    
+    
+    
+    .tab-button-text{
+        color: rgba(60, 60, 60, 0.7);
+    }
+    
+    .tabs-ios[tabsHighlight=true] .tab-highlight{
+        background-color: #3BABE3;
+        left: 0;
+        bottom: 0;
+        transform-origin: 0 0;
+        position: absolute;
+        display: block;
+        height:3px;
+        width: 1px;
+    }
+    .tabs-md .tab-button[aria-selected=true]{
+        color: rgba(60, 60, 60, 0.7);
+    }
+    .tabs-ios .tab-button[aria-selected=true]{
+        color: rgba(60, 60, 60, 0.7);
+    }
+    .tabs-wp .tab-button[aria-selected=true]{
+        color: rgba(60, 60, 60, 0.7);
+    }
+    .tabs-wp[tabsHighlight=true] .tab-highlight{
+        background-color: #3BABE3;
+        left: 0;
+        bottom: 0;
+        transform-origin: 0 0;
+        position: absolute;
+        display: block;
+        height:3px;
+        width: 1px;
+    }
+    .tabs-wp .tab-button{
+        border-bottom: 0.55px solid rgba(60, 60, 60, 0.7);
+        border-top: 0.55px solid rgba(60, 60, 60, 0.7);
+    }
+    #srhbtn {
+        color: #3BABE3;
+    }
+    .tabs-md[tabshighlight="true"] .tab-highlight {
+        background-color: #3BABE3;
+    }
+    .tabs-ios[tabsHighlight=true] .tab-highlight {
+        background-color: #3BABE3;
+    }
+    .toolbar-background {
+        background-color: white;
+    }
+    .tabs .tabbar {
+        background-color: white;
+    }
+    
+}

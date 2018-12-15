@@ -1,0 +1,104 @@
+
+<ion-header>
+
+  <ion-toolbar>
+  		<ion-buttons left>
+  			<button ion-button clear icon-only id="closebtn" (click)="closeEditInfoPage()">
+  				<ion-icon name="md-close"></ion-icon>
+  			</button>
+  		</ion-buttons>
+  		<ion-title>Edit info</ion-title>
+  	  	<ion-buttons end>
+  			<button ion-button clear icon-only type="submit" (click)="toSlides()">
+  				<ion-icon name="md-checkmark" id="tickbtn"></ion-icon>
+  			</button>
+  		</ion-buttons>
+	</ion-toolbar>	
+</ion-header>
+
+
+<ion-content id="content">
+  <p style="font-size: 10px;color: grey;text-align:center" >Attach your resumes or fill the fill the feilds below</p>
+  <ion-list>
+    <ion-item>
+      <button ion-button clear item-start id="impbtn" (click)="browseFile()"><i class="fas fa fa-upload"></i></button>
+      <span>Import Resume</span>
+      <button ion-button icon-only clear item-end>
+        <ion-icon name="logo-dropbox"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+  <ion-list class="listitem">
+    	<form (submit)="onEditFormSubmit()" [formGroup]="EditPageUserForm">
+          <ion-list class="listitem">
+            <ion-item class="list">
+              <ion-label class="list2" color="black" fixed>Full name</ion-label>
+              <ion-input type="text" formControlName="name" [(ngModel)]="userSpecificData.name" name="name" class="form-control"></ion-input>
+            </ion-item>
+            <control-messages [control]="EditPageUserForm.controls.name" class="control-messages"></control-messages>
+          </ion-list>
+          <ion-list class="listitem">
+              <ion-item class="list">
+                  <ion-label class="list2" color="black" fixed>User name</ion-label>
+                  <ion-input type="text" formControlName="username" [(ngModel)]="userSpecificData.username" name="usename" class="form-control"></ion-input>
+                </ion-item>
+            <control-messages [control]="EditPageUserForm.controls.username" class="control-messages"></control-messages>
+          </ion-list>
+          <ion-list class="listitem">
+              <ion-item>
+                <ion-label color="black" fixed>Phone</ion-label>
+                <ion-input type="tel" formControlName="phone" name="phone"  [(ngModel)]="userSpecificData.phone" placeholder="Phone"></ion-input>
+              </ion-item>
+              <control-messages [control]="EditPageUserForm.controls.phone" class="control-messages"></control-messages>
+          </ion-list>
+          <ion-list class="listitem">
+              <ion-item class="list">
+                  <ion-label class="list2" color="black" fixed>Email</ion-label>
+                  <ion-input type="email" [(ngModel)]="userSpecificData.email" formControlName="email" name="email" class="form-control" ></ion-input>
+                </ion-item>
+                <control-messages [control]="EditPageUserForm.controls.email" class="control-messages"></control-messages>
+          </ion-list>
+            
+          <ion-list class="listitem">
+              <ion-item>
+                <ion-label color="black" fixed>Location
+                </ion-label>
+                <button ion-button icon-only clear item-end id="locbtn">
+                      <ion-icon name="md-navigate"></ion-icon>
+                </button>
+                <ion-input placeholder="Location" [(ngModel)]="userSpecificData.location" formControlName="location" name="location" ></ion-input>
+              </ion-item>
+              <control-messages [control]="EditPageUserForm.controls.location" class="control-messages"></control-messages>
+          </ion-list>
+          <ion-list class="listitem">
+              <ion-item>
+                <ion-label color="black" fixed>Title
+                  <p style="text-align: justify;color: red;font-size: 8px;">this feild is required</p>
+                </ion-label>
+                <ion-input placeholder="Title" formControlName="title"  name="title" [(ngModel)]="userSpecificData.title"></ion-input>
+              </ion-item>
+              <control-messages [control]="EditPageUserForm.controls.title" class="control-messages"></control-messages>
+          </ion-list>
+          <ion-list class="listitem">
+              <ion-item>
+                <ion-label color="black" fixed>Company</ion-label>
+                <ion-input placeholder="Eg Apple" formControlName="company" name="company" [(ngModel)]="userSpecificData.company"></ion-input>
+              </ion-item>
+              <control-messages [control]="EditPageUserForm.controls.company" class="control-messages"></control-messages>
+          </ion-list>
+          <ion-list class="listitem">
+            <ion-item>
+              <ion-label color="black" fixed>Education
+                <p style="text-align: justify;color: red;font-size: 8px;">this feild is required</p>
+              </ion-label>
+              <ion-input placeholder="University" formControlName="education" name="education" [(ngModel)]="userSpecificData.education"></ion-input>
+            </ion-item>
+            <control-messages [control]="EditPageUserForm.controls.education" class="control-messages"></control-messages>
+          </ion-list>
+          <div id="newAcbtnpos">
+            <button type="submit"  ion-button block id="newAcbtn" value="Submit">Save Changes</button>
+          </div>
+        </form>
+    </ion-list>
+
+</ion-content>

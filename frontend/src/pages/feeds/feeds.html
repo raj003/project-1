@@ -1,0 +1,62 @@
+
+<ion-header>
+  <ion-toolbar>
+  	
+		<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+		<ion-buttons right>
+			<button icon-only ion-button color="bluelight">
+				<ion-icon name="mic"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons right>
+			<button ion-button clear style="color: #3BABE3;" (click)="showAlert()" >
+				<i class="fas fa fa-filter"></i>
+			</button>
+		</ion-buttons>	
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+	<div *ngIf="showdropdown">
+		<ion-list class="dropdown">
+			<ion-item *ngFor="let jobItems of items">
+				{{ jobItems }}
+			</ion-item>
+		</ion-list>
+	</div>	
+	<div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(false)" (throwoutright)="voteUp(true)" id="card-stack" >
+		<ion-card #mycards1 swing-card *ngFor="let card of cards">
+			<div >
+				<img src="assets/imgs/lap.jpg" (click)="launchjobDescriptionPage(card)" id="tagimg">
+				<div class="textoncard title" >{{ card.company }}</div>
+				<div class="textoncard subt">{{ card.jobtitle }}</div>
+				<div class="textoncard time">2 days ago</div>
+			</div>
+			<ion-card-content>
+				<table>
+					<tr>
+						<td class="label">Location</td>
+						<td class="des">{{ card.location }}</td>
+					</tr>
+					<tr>
+						<td class="label">Type</td>
+						<td class="des">{{ card.jobtype }}</td>
+					</tr>
+					<tr>
+						<td class="label">salary</td>
+						<td class="des">{{ card.jobtype }}</td>
+					</tr>
+					<tr>
+						<td class="label">Description</td>
+						<td class="des lmt">{{ card.jobdescrition.substring(0, 75) }}</td>
+					</tr>
+					<tr>
+						<td class="label">Source</td>
+						<td class="des"><p style="color: purple;font-weight: bold;">Monster</p></td>
+					</tr>
+				</table>
+			</ion-card-content>
+		</ion-card>
+	</div>	
+</ion-content>

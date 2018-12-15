@@ -1,0 +1,64 @@
+page-register {
+
+
+
+#colsebutton {
+	
+	color: #3BABE3;
+}
+
+
+#ipfeilds {
+	width: 320px;
+	height: 100px;
+	background: #FFFFFF;
+	position: relative;
+	top: 15px;
+}
+.list2 { padding-left: 16px;}
+.list {
+	padding-left: 0px; 
+}
+#content {
+	background: #F5F5F5;
+}
+ion-label {
+	font-size: 14px;
+}
+ion-input {
+	font-size: 14px;
+}
+#Policy {
+	font-size: 9px;
+	color: grey;
+	text-align: center;
+	position: relative;
+}
+#newAcbtn {
+	background: #3BABE3;
+}
+#newAcbtnpos {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+ion-label[fixed] {
+	min-width: 50px;
+	flex: 0 0 90px;
+}
+.control-messages {
+	font-size: 13px;
+	color: red;
+	position: relative;
+	top:0px;
+	left: 15px;
+
+}
+ion-item:first-child {
+	//margin-bottom: 10px;
+}
+ion-item {
+	margin-top: 10px;
+}
+
+}

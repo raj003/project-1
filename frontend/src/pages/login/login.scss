@@ -1,0 +1,73 @@
+page-login {
+
+#closebtn {
+	color: #3BABE3;
+}
+
+.borders {
+	
+	margin-bottom: 10px;
+	border: 0.55px solid #c8c7cc;
+	border-radius: 4px;
+	width: 100%;
+	height:50px;
+	border-style: solid;
+}
+ion-label {
+	font-size: 14px;
+}
+ion-input {
+	font-size: 14px;
+}
+#content {
+	background-color: #E8E8E8;
+}
+#fpassbtn {
+	
+	color: black;
+	font-size: 15px;
+}
+#fpass {
+	text-align: center;
+	position: relative;
+	bottom: 15px;
+}
+#signinbtn {
+	color: white;
+	background-color: #3BABE3;
+	
+}
+#signdiv {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+ion-label[fixed] {
+	flex: 0 0 70px;
+	min-width: 50px;
+	width: 16px;
+
+}
+#login-form {
+	margin:10px 0px;
+}
+.errMsg {
+	border-bottom:2px solid red !important;
+}
+ion-item {
+	padding-left: 0px !important;
+	.item-inner {
+		padding-left: 16px !important;
+		//border-bottom: 0px !important;
+	}
+}
+.control-messages {
+	font-size: 13px;
+	color: red;
+	position: relative;
+	top:-7px;
+	left: 4px;
+
+}
+
+
+}

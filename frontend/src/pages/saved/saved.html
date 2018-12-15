@@ -1,0 +1,26 @@
+<!--
+  Generated template for the SavedPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  
+
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let savedjob of savedjobs.slice().reverse()">
+            <ion-avatar item-start>
+                <ion-text-avatar shape="round" class="avatar font">
+                  {{ savedjob.companyTitle.charAt(0) }}
+                </ion-text-avatar>
+            </ion-avatar>
+          <h6>{{ savedjob.companyTitle }}</h6>
+          <p id="p">{{ savedjob.jobTitle }}</p>
+        </ion-item>
+      </ion-list>
+</ion-content>
