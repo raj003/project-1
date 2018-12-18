@@ -5,7 +5,7 @@ import { MatchesPage} from '../matches/matches';
 import { ConversationPage } from '../conversation/conversation';
 import { ProfilePage } from '../profile/profile';
 import { SettingsPage } from '../settings/settings'; 
-import { JobActionsProvider } from '../../providers/job-actions/job-actions';
+//import { JobActionsProvider } from '../../providers/job-actions/job-actions';
 
 
 @IonicPage()
@@ -23,7 +23,7 @@ export class JobPage {
   url: string;
   msgCount : any;
 
-  constructor(public navCtrl: NavController, public jobAction: JobActionsProvider) {
+  constructor(public navCtrl: NavController) {
     
   }
 

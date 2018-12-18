@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
-import { JobActionsProvider } from '../../providers/job-actions/job-actions';
+import { JobServiceProvider } from '../../providers/job-service/job-service';
+
 
 @IonicPage()
 @Component({
@@ -19,8 +20,7 @@ export class JobDetailPage {
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
     public actionSheetCtrl: ActionSheetController,
-    private nativePageTransitions: NativePageTransitions,
-    private joblist: JobActionsProvider) {
+    private nativePageTransitions: NativePageTransitions,private jobservice: JobServiceProvider) {
   }
 
   ionViewDidLoad() {
@@ -74,12 +74,14 @@ export class JobDetailPage {
 
   //saving the job in db
   savethejob() {
+    
     let jobdetails = {
       company: this.company,
       jobtitle: this.jobtitle,
-      location: this.location
+      location: this.location,
+      
     }
-    this.joblist.addSavedjobList(jobdetails);
+    this.jobservice.postSavedJob(jobdetails);
   }
 
   //to close page
@@ -94,7 +96,7 @@ export class JobDetailPage {
       jobtitle: this.jobtitle,
       location: this.location
     }
-    this.joblist.addJobList(applyjobdetails);
+    this.jobservice.postAppliedJob(applyjobdetails);
   }
 
 }

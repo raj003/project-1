@@ -178,35 +178,28 @@ router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res,
 });
 
 //post appliedjoblist
-  router.post('/jobApplied', function(req,res) {
-    console.log('Posting job');
-    appliedJobs.create({
-      companyTitle: req.body.companyTitle,
-        jobTitle: req.body.jobTitle,
-        location: req.body.location,
-        date: req.body.date,
-        userId: req.body.id
-    }, function(err,appliedList) {
-      if(err) {
-        console.log('error in posting applied jobs ' +err)
-      }
-      else if(appliedList) {
-        return res.json({
-          success: true,
-          list: {
-            companyTitle: appliedList.companyTitle,
-            location: appliedList.location,
-            data: appliedList.data,
-            userId: appliedList.userId
-          }
-        })
-      }
-    });
-  });
+router.post('/joblist', function(req,res) {
+  console.log('posting');
+  jobList.create({
+    companyTitle: req.body.companyTitle,
+    jobTitle: req.body.jobTitle,
+    location: req.body.location,
+    date: req.body.AppliedDate,
+    userId: req.body.userId
+  },function(err,list) {
+    if (err) {
+      console.log('err getting list '+ err);
+    } else {
+      res.json(list);
+    }
+  }
+  );
+});
+
 //getting appliedjoblistlist
-  router.get('/jobApplied/:id', (req,res) => {
+  router.get('/joblist/:id', (req,res) => {
     console.log('Retriving the applied jobs');
-    appliedJobs.findOne({userId: req.body.id}, (err, list) => {
+    appliedJobs.find({userId: req.body.userId}, (err, list) => {
       if(err) {
         console.log('error in getting applied jobs ' + err);
       }
@@ -217,9 +210,9 @@ router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res,
   })
 
 //getting failed jobs
-router.get('/failedjobs',function(req,res) {
+router.get('/failjoblist/:id',function(req,res) {
   console.log('getting failed job');
-  fljobList.find(function(err,list) {
+  fljobList.find({userId: req.body.id},function(err,list) {
     if(err) {
       res.send(err);
     } else {
@@ -228,15 +221,15 @@ router.get('/failedjobs',function(req,res) {
   });
 });
 
-
-router.post('/failedjobs/:id' , (req,res) => {
+// posting the failed job
+router.post('/failjoblist' , (req,res) => {
   console.log('posting the failed job');
   fljobList.create({
     companyTitle: req.body.companyTitle,
     jobTitle: req.body.jobTitle,
     location: req.body.location,
     date: req.body.date,
-    userId: req.body.id
+    userId: req.body.userId
   }, (err, list) => {
     if (err) {
       res.send('cannot post the job ' + err)
@@ -247,9 +240,9 @@ router.post('/failedjobs/:id' , (req,res) => {
 });
 
 //getting saved jobs
-router.get('/savedjobslist',function(req,res) {
+router.get('/savedjobList/:id',function(req,res) {
   console.log('gettin saved jobs');
-  savedjobsList.find(function(err,savedlist) {
+  savedjobsList.find({userId: req.body.id},function(err,savedlist) {
     if(err) {
       res.send('error in getting saved jobs '+ err);
     } else {
@@ -258,12 +251,14 @@ router.get('/savedjobslist',function(req,res) {
   });
 });
 //posting to saved jobs
-router.post('/savedjobslist', function(req,res) {
+router.post('/savedjobList', function(req,res) {
   console.log('posting saved job');
   savedjobsList.create({
     companyTitle: req.body.companyTitle,
     jobTitle: req.body.jobTitle,
-    location: req.body.location
+    location: req.body.location,
+    date: req.body.date,
+    userId: req.body.userId
   }, function(err,savedlist) {
     if (err) {
       res.send('enable send the data to DB '+ err);
@@ -521,15 +516,6 @@ router.post('/facebookuser', function(req,res) {
     }
   });
 });
-
-router.post('/hello', function(req,res) {
-  console.log('reached here');
-  console.log(req.body.data1);
-})
-
-
-
-
 
 
 module.exports = router;

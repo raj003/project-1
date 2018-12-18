@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ChatBoxPage } from '../chat-box/chat-box';
-import { JobActionsProvider } from '../../providers/job-actions/job-actions';
+//import { JobActionsProvider } from '../../providers/job-actions/job-actions';
 import { IonTextAvatar } from 'ionic-text-avatar';
 
 
@@ -14,7 +14,7 @@ export class ConversationPage {
 
   jobList : Array<any> = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private appliedJobs : JobActionsProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {

@@ -1,21 +1,28 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { JobActionsProvider } from '../../providers/job-actions/job-actions';
+//import { JobActionsProvider } from '../../providers/job-actions/job-actions';
 import { AuthService } from '../../services/auth.service';
-
+import { JobServiceProvider } from '../../providers/job-service/job-service';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @IonicPage()
 @Component({
   selector: 'page-failed',
   templateUrl: 'failed.html',
 })
-export class FailedPage {
+@Pipe({ name: 'reverse' })
+
+export class FailedPage implements PipeTransform {
+  transform(value) {
+    return value.slice().reverse();
+  }
+
 
   failedjobs: Array<any> = [];
   profile: any;
 
   constructor(public navCtrl: NavController, 
-              public navParams: NavParams, public jobfailList: JobActionsProvider, private authServices: AuthService) {
+              public navParams: NavParams, public jobfailList: JobServiceProvider, private authServices: AuthService) {
   }
 
   ionViewDidLoad() {
@@ -36,10 +43,10 @@ export class FailedPage {
 
   // retreving the failed jobs
   getFailedJobsList(profileId) {
-    this.jobfailList.getfailedjobList(profileId).subscribe((failedJobs: any) => {
+    this.jobfailList.getFailedJobList(profileId).then((failedJobs: any) => {
     console.log('listing the failed jobs');
     this.failedjobs = failedJobs;
-    }, (err) => console.log('Error in fetching the failed jobs '+ err))
+    }).catch((err: any) => console.log(err))
   }
   
 

@@ -11,9 +11,12 @@ import {
   SwingStackComponent,
   SwingCardComponent
 } from 'angular2-swing';
-import { JobActionsProvider } from '../../providers/job-actions/job-actions';
+//import { JobActionsProvider } from '../../providers/job-actions/job-actions';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { JobFunctionsProvider } from '../../providers/job-functions/job-functions';
+//import { JobFunctionsProvider } from '../../providers/job-functions/job-functions';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthService } from '../../services/auth.service';
+import { JobServiceProvider } from '../../providers/job-service/job-service';
 
 
 @IonicPage()
@@ -41,8 +44,9 @@ export class FeedsPage {
     public modalCtrl: ModalController,
     private nativePageTransitions: NativePageTransitions,
     public jobdetail: JobsDataProvider,
-    public joblist: JobActionsProvider, private localNotifications: LocalNotifications, private platform: Platform,
-    private jobFuctions: JobFunctionsProvider
+     private localNotifications: LocalNotifications, private platform: Platform,
+    private jobService: JobServiceProvider, private http: HttpClient, private authServices: AuthService,
+
     )
    {
     this.stackConfig = {
@@ -174,7 +178,8 @@ export class FeedsPage {
     // when card is swiped right is is going to call the post the applied job method
     if (like) {
       console.log('you have liked '+ removedCard.jobtitle + ' '+ removedCard.company + ' '+ removedCard.location);
-      this.joblist.addJobList(removedCard)
+      
+      this.jobService.postAppliedJob(removedCard)
       // .then((response: any) => {
       //   if(response.success) {
       //     this.promptNotification(response.listData); // after applying the job -> prompt notification
@@ -187,7 +192,7 @@ export class FeedsPage {
     // when the card is swiped left it's going to call the post the failed job method. 
     else {
       console.log('you have disliked '+ removedCard.jobtitle+ ' '+ removedCard.company + ' '+ removedCard.location);
-      this.joblist.addfailedJobList(removedCard);
+      this.jobService.postFailedJob(removedCard);
     }
   }
   // add new cards
@@ -207,5 +212,7 @@ export class FeedsPage {
       });
     });
   }
+// --------------------------------------------------------------------------
+  
 
 }

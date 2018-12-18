@@ -37,7 +37,7 @@ import { HandleUserDataService } from '../services/handleUserData.service';
 import { PolicyPage } from '../pages/policy/policy';
 import { TermsofusagePage } from '../pages/termsofusage/termsofusage';
 import { JobsDataProvider } from '../providers/jobs-data/jobs-data';
-import { JobActionsProvider } from '../providers/job-actions/job-actions';
+//import { JobActionsProvider } from '../providers/job-actions/job-actions';
 import { File } from '@ionic-native/file';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { Camera } from '@ionic-native/camera';
@@ -48,7 +48,8 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { ConfigsProvider } from '../providers/configs/configs';
 import {DatePipe} from '@angular/common';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { JobFunctionsProvider } from '../providers/job-functions/job-functions';
+//import { JobFunctionsProvider } from '../providers/job-functions/job-functions';
+import { JobServiceProvider } from '../providers/job-service/job-service';
 
 
 
@@ -126,11 +127,10 @@ import { JobFunctionsProvider } from '../providers/job-functions/job-functions';
     ValidationService, 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     JobsDataProvider,
-    JobActionsProvider,
     File,FileChooser,Camera,InAppBrowser,Deeplinks,
     LinkedinPageProvider,Facebook,
     ConfigsProvider, DatePipe, LocalNotifications,
-    JobFunctionsProvider
+    JobServiceProvider
     
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
