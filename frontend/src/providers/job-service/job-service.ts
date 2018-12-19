@@ -2,7 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ConfigsProvider } from '../configs/configs';
 import { AuthService } from '../../services/auth.service';
-
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { Platform } from 'ionic-angular';
 
 
 @Injectable()
@@ -11,7 +12,8 @@ export class JobServiceProvider {
   url : string; // config file address
   db_url: any;  // assign the db url
 
-  constructor(public http: HttpClient,private configs: ConfigsProvider, private authService: AuthService) {
+  constructor(public http: HttpClient,private configs: ConfigsProvider, private authService: AuthService, 
+    private localNotification: LocalNotifications, private platform: Platform) {
     console.log('Hello JobServiceProvider Provider');
     this.url = 'assets/ionic-config.json';
     this.callTheDbUrl();
@@ -60,7 +62,14 @@ export class JobServiceProvider {
     console.log(job);
     let headers = new HttpHeaders();
     headers.append('Content-Type','application/json');
-    this.http.post(this.db_url + 'joblist',job,{headers: headers});
+    this.http.post(this.db_url + 'joblist',job,{headers: headers})
+    .subscribe((data: any) => {
+      if(data) {
+        this.promptNotification(data);
+      }
+    },(err: any) => {
+      console.log('err in applying the job ' + err);
+    });
   }
 
   //post the failed job
@@ -77,7 +86,11 @@ export class JobServiceProvider {
     console.log(job);
     let headers = new HttpHeaders();
     headers.append('Content-Type','application/json');
-    this.http.post(this.db_url + 'failjoblist',job,{headers: headers});
+    this.http.post(this.db_url + 'failjoblist',job,{headers: headers}).subscribe((data: any) => {
+      if(data) {
+        console.log('posted the disliked job');
+      }
+    },(err: any) => console.log(err + 'at the posting the failed jobs'));
   }
 
   // post the saved job
@@ -94,7 +107,11 @@ export class JobServiceProvider {
     console.log(job);
     let headers = new HttpHeaders();
     headers.append('Content-Type','application/json');
-    this.http.post(this.db_url + 'savedjobList',job,{headers: headers});
+    this.http.post(this.db_url + 'savedjobList',job,{headers: headers}).subscribe((data: any) => {
+      if(data) {
+        console.log('posted the saved job');
+      }
+    },(err: any) => console.log(err + 'at the posting the saved jobs'));
   }
 
   // get the applied jobs list 
@@ -103,6 +120,8 @@ export class JobServiceProvider {
     let headers = new HttpHeaders();
     headers.append('Content-Type','application/json');
     return this.http.get(this.db_url + 'joblist/' + userId,{headers: headers})
+    // .subscribe((list: any) => console.log(list),
+    // (err: any) => console.log('err in getting applied jobs ' + err));
   }
   // get the failed job list
   async getFailedJobList(userId) {
@@ -115,6 +134,17 @@ export class JobServiceProvider {
     let headers = new HttpHeaders();
     headers.append('Content-Type','application/json');
     return this.http.get(this.db_url + 'savedjobList/' + userId,{headers: headers})
+  }
+
+  // to get the notifications when applied for a job.
+  promptNotification(msg) {
+    this.platform.ready().then(() => {
+      this.localNotification.schedule({
+        title: msg.companyTitle,
+        text: 'You have succesfully applied to the job please click here to proceed for job interview',
+        trigger: {at: new Date(new Date().getTime() + 1500)}
+      })
+    })
   }
 
 

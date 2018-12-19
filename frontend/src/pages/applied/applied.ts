@@ -20,7 +20,7 @@ export class AppliedPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private jobService: JobServiceProvider,private authServices: AuthService)
   {
-    
+    //this.appliedjobs = null;
   }
 
   ionViewDidLoad() {
@@ -28,8 +28,7 @@ export class AppliedPage {
   }
 
   ionViewWillEnter() {
-    
-    
+    this.appliedJob();
   }
   // to get the user id
   profileId() {
@@ -46,7 +45,9 @@ export class AppliedPage {
   async appliedJob() {
     let id = await this.profileId();
     this.jobService.getAppliedJobList(id).then((list : any) => {
-      this.appliedjobs = list;
+      for(let job of list) {
+        this.appliedjobs.push(job);
+      }
     }).catch((err: any) => {
       console.log(err);
     })

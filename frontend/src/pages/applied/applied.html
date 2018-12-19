@@ -4,7 +4,7 @@
 <ion-content class="no-scroll">
         
         <ion-list>
-          <ion-item *ngFor="let appliedjob of appliedjobs.slice().reverse()">   
+          <ion-item *ngFor="let appliedjob of appliedjobs">   
             <ion-avatar item-start ion-checkbox checked="true">
               <ion-text-avatar shape="round" class="avatar font">
                 {{ appliedjob.companyTitle.charAt(0) }}
