@@ -197,9 +197,9 @@ router.post('/joblist', function(req,res) {
 });
 
 //getting appliedjoblistlist
-  router.get('/joblist/:id', (req,res) => {
+  router.get('/joblist/:userId', (req,res) => {
     console.log('Retriving the applied jobs');
-    appliedJobs.find({userId: req.body.userId}, (err, list) => {
+    jobList.find({userId: req.params.userId}, (err, list) => {
       if(err) {
         console.log('error in getting applied jobs ' + err);
       }
@@ -212,7 +212,7 @@ router.post('/joblist', function(req,res) {
 //getting failed jobs
 router.get('/failjoblist/:id',function(req,res) {
   console.log('getting failed job');
-  fljobList.find({userId: req.body.id},function(err,list) {
+  fljobList.find({userId: req.params.id},function(err,list) {
     if(err) {
       res.send(err);
     } else {
@@ -242,7 +242,7 @@ router.post('/failjoblist' , (req,res) => {
 //getting saved jobs
 router.get('/savedjobList/:id',function(req,res) {
   console.log('gettin saved jobs');
-  savedjobsList.find({userId: req.body.id},function(err,savedlist) {
+  savedjobsList.find({userId: req.params.id},function(err,savedlist) {
     if(err) {
       res.send('error in getting saved jobs '+ err);
     } else {

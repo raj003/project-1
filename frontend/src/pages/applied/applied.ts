@@ -44,13 +44,11 @@ export class AppliedPage {
 
   async appliedJob() {
     let id = await this.profileId();
-    this.jobService.getAppliedJobList(id).then((list : any) => {
+    this.jobService.getAppliedJobList(id).subscribe((list : any) => {
       for(let job of list) {
         this.appliedjobs.push(job);
       }
-    }).catch((err: any) => {
-      console.log(err);
-    })
+    },(err: any) => console.log(err));
   }
 
   

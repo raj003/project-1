@@ -50,6 +50,7 @@ import {DatePipe} from '@angular/common';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 //import { JobFunctionsProvider } from '../providers/job-functions/job-functions';
 import { JobServiceProvider } from '../providers/job-service/job-service';
+import { ConversationPage } from '../pages/conversation/conversation';
 
 
 

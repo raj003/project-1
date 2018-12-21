@@ -7,18 +7,12 @@
 
 
 <ion-content>
-  <!-- <ion-list>
-    <ion-item *ngFor="let job of jobList.slice().reverse()" (click)="gotoChatbox()">   
-      <ion-avatar item-start ion-checkbox checked="true">
-        <ion-text-avatar shape="round" class="avatar font">
-          {{ job.companyTitle.charAt(0) }}
-        </ion-text-avatar>
-      <ion-icon name="checkmark-circle"></ion-icon>  
-      </ion-avatar>
-        <h6>{{ job.companyTitle }}</h6>
-        <p id="p">Applied 2 minutes ago</p>
-        <p id="p1">{{ job.jobTitle }}</p>
-    </ion-item>
-  </ion-list> -->
+  <ion-list *ngFor="let job of jobList.slice().reverse()">
+    <ion-item (click)="gotoChatbox()">
+      <ion-avatar start>
 
+      </ion-avatar>
+      <h2>{{ job.companyTitle }}</h2>
+    </ion-item>
+  </ion-list>
 </ion-content>

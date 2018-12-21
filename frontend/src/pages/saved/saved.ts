@@ -18,30 +18,19 @@ export class SavedPage {
   db_url: any;  // assign the db url
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  private joblist: JobServiceProvider, private configs: ConfigsProvider, private authService: AuthService) {
+  private jobService: JobServiceProvider, private configs: ConfigsProvider, private authService: AuthService) {
 
     this.url = 'assets/ionic-config.json';
     this.callTheDbUrl();    // calls the method as class is intiated
   }
 
   ionViewDidLoad() {
-    // console.log('SavedPage');
-    // //getting and displaying the saved jobs
-    // this.joblist.getSavedjoblslist().subscribe((data: any) =>  {
-    //   console.log('displaying saved jobs ' + data);
-    //   for(let values of data) {
-    //     this.savedjobs.push(values);
-    //   }
-    // },(err) => console.log('error in getting saved jobs '+err));
+    
   }
 
   async ionViewWillEnter() {
-    let userId = await this.profileId();
-    console.log('getting the saved jobs');
-    this.joblist.getSavedJobList(userId).then((list: any) => {
-      this.savedjobs = list;
-    }).catch((err: string) => console.log('error in getting the saved jobs' + err))
-
+    this.getSavedJobs();
+    
   }
 
   async callTheDbUrl() {
@@ -57,13 +46,22 @@ export class SavedPage {
         resolve(userId)
       },(error : any) => {
         console.log('err in getting profile ' +error);
-      })
-    })
+      });
+    });
   }
 
+  // fetching all the saved jobs
+  async getSavedJobs() {
+    let id = await this.profileId();
+    this.jobService.getSavedJobList(id).subscribe((list: any) => {
+      for (let job of list) {
+        this.savedjobs.push(job);
+        
+      }
+    },(err: any) => {
+      console.log(err);
+      console.log('err in getting the saved jobs');
+    });
+  }
 }
 
-// console.log(' Into the saved jobs ');
-//     this.joblist.getSavedjoblslist().subscribe( (savedJobs : any) => {
-//       this.savedjobs = savedJobs;
-//     }, (error : any) => console.log('error in fetching the saved jobs ' +error))

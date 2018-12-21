@@ -115,25 +115,25 @@ export class JobServiceProvider {
   }
 
   // get the applied jobs list 
-  async getAppliedJobList(userId) {
+  getAppliedJobList(userId) {
     //let userId = await this.profileId();
     let headers = new HttpHeaders();
     headers.append('Content-Type','application/json');
     return this.http.get(this.db_url + 'joblist/' + userId,{headers: headers})
-    // .subscribe((list: any) => console.log(list),
-    // (err: any) => console.log('err in getting applied jobs ' + err));
+    
   }
   // get the failed job list
-  async getFailedJobList(userId) {
+  getFailedJobList(userId) {
     let headers = new HttpHeaders();
     headers.append('Content-Type','application/json');
     return this.http.get(this.db_url + 'failjoblist/' + userId,{headers: headers})
   }
   // get the saved job list
-  async getSavedJobList(userId) {
+  getSavedJobList(userId) {
     let headers = new HttpHeaders();
     headers.append('Content-Type','application/json');
     return this.http.get(this.db_url + 'savedjobList/' + userId,{headers: headers})
+    
   }
 
   // to get the notifications when applied for a job.
@@ -143,8 +143,8 @@ export class JobServiceProvider {
         title: msg.companyTitle,
         text: 'You have succesfully applied to the job please click here to proceed for job interview',
         trigger: {at: new Date(new Date().getTime() + 1500)}
-      })
-    })
+      });
+    });
   }
 
 

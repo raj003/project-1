@@ -22,7 +22,7 @@ export class FailedPage implements PipeTransform {
   profile: any;
 
   constructor(public navCtrl: NavController, 
-              public navParams: NavParams, public jobfailList: JobServiceProvider, private authServices: AuthService) {
+              public navParams: NavParams, public jobService: JobServiceProvider, private authServices: AuthService) {
   }
 
   ionViewDidLoad() {
@@ -30,23 +30,29 @@ export class FailedPage implements PipeTransform {
   }
 
   ionViewWillEnter() {
-    // fetching the failed jobs list
-    // getting the profile
-    this.authServices.getProfile().subscribe((profile: any) => {
-      this.profile = profile.user._id;
-      if(this.profile) {
-        this.getFailedJobsList(this.profile);
-      }
-    },(error: any) => console.log(' error in getting the profile id ' + error))
+    this.listingFailedJobs();
     
   }
 
   // retreving the failed jobs
-  getFailedJobsList(profileId) {
-    this.jobfailList.getFailedJobList(profileId).then((failedJobs: any) => {
-    console.log('listing the failed jobs');
-    this.failedjobs = failedJobs;
-    }).catch((err: any) => console.log(err))
+  async listingFailedJobs() {
+    let id = await this.profileId();
+    this.jobService.getFailedJobList(id).subscribe((list : any) => {
+      for(let job of list) {
+        this.failedjobs.push(job);
+      }
+    },(err: any) => console.log(err));
+  }
+
+  profileId() {
+    return new Promise((resolve) => {
+      this.authServices.getProfile().subscribe((profile: any) => {
+        let userId = profile.user._id;
+        resolve(userId)
+      },(error : any) => {
+        console.log('err in getting profile ' +error);
+      });
+    });
   }
   
 
